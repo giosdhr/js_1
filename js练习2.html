@@ -64,10 +64,10 @@ input{ width:55px; height:40px; }
 </tr>
 </table>
 <script type="text/javascript">
-var arr = new Array()
+var arr = new Array()                           //存储记录用
 var i = 0;
-var rec1 = 0,rec2 = 0,recstr = null;
-function showAdd(){
+var rec1 = 0,rec2 = 0,recstr = null;           //记录 第一个数字 第二个数字 操作符
+function showAdd(){                            //处理数组内数字
 	var ii=0;
 	var sum=0;
 	while(ii < i){
@@ -77,13 +77,13 @@ function showAdd(){
 	return sum;
 }
 function jsq(event){
-	if(!isNaN(event.value)){
+	if(!isNaN(event.value)){                    //处理数字，填充数组
 		var temp = parseInt(event.value);
 		arr[i] = temp;
 		i++;
 		rec2 = showAdd();
 		document.getElementById("text").value = rec2.toString();
-	}else{
+	}else{                                     //处理操作符
 		switch(event.value){
 			case 'power':
 				rec2 *= rec2;
@@ -118,7 +118,7 @@ function jsq(event){
 					document.getElementById("text").value = rec2.toString();
 					break;
 			}
-			recstr = null;
+			recstr = null;      //清理
 			rec1 = 0;
 			i = 0;
 		}else{
@@ -126,11 +126,8 @@ function jsq(event){
 			recstr = event.value;
 			i = 0;
 		}
-		
 	}
 }
-
-
 </script>
 </body>
 </html>
